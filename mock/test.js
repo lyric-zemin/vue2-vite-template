@@ -1,11 +1,11 @@
-import { resultSuccess } from "./_util";
+import { resultSuccess } from './_util'
 
 export default [
   {
-    url: "/api/test",
-    method: "get",
+    url: '/api/test',
+    method: 'get',
     response: () => {
-      return resultSuccess({ name: "test ok" });
+      return resultSuccess({ name: 'test ok' })
     },
   },
-];
+]

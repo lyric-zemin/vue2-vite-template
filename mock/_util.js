@@ -1,16 +1,16 @@
 // Interface data format used to return a unified format
 
-export function resultSuccess(result, { message = "ok" } = {}) {
+export function resultSuccess(result, { message = 'ok' } = {}) {
   return {
     code: 0,
     result,
     message,
-    type: "success",
-  };
+    type: 'success',
+  }
 }
 
-export function resultPageSuccess(page, pageSize, list, message = "ok") {
-  const pageData = pagination(page, pageSize, list);
+export function resultPageSuccess(page, pageSize, list, message = 'ok') {
+  const pageData = pagination(page, pageSize, list)
 
   return {
     ...resultSuccess({
@@ -18,24 +18,24 @@ export function resultPageSuccess(page, pageSize, list, message = "ok") {
       total: list.length,
     }),
     message,
-  };
+  }
 }
 
 export function resultError(
-  message = "Request failed",
-  { code = 0, result = null } = {}
+  message = 'Request failed',
+  { code = 0, result = null } = {},
 ) {
   return {
     code,
     result,
     message,
-    type: "error",
-  };
+    type: 'error',
+  }
 }
 
 export function pagination(pageNo, pageSize, array) {
-  const offset = (pageNo - 1) * Number(pageSize);
+  const offset = (pageNo - 1) * Number(pageSize)
   return offset + Number(pageSize) >= array.length
     ? array.slice(offset, array.length)
-    : array.slice(offset, offset + Number(pageSize));
+    : array.slice(offset, offset + Number(pageSize))
 }

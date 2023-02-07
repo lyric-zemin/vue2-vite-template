@@ -1,18 +1,19 @@
-import { defineConfig, splitVendorChunkPlugin } from "vite";
-import Vue from "@vitejs/plugin-vue2";
-import Legacy from "@vitejs/plugin-legacy";
-import WindiCSS from "vite-plugin-windicss";
-import Pages from "vite-plugin-pages";
-import Components from "unplugin-vue-components/vite";
-import { viteMockServe as Mock } from "vite-plugin-mock";
-import Inspect from "vite-plugin-inspect";
-import { compression } from "vite-plugin-compression2";
+import path from 'node:path'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import Vue from '@vitejs/plugin-vue2'
+import Legacy from '@vitejs/plugin-legacy'
+import WindiCSS from 'vite-plugin-windicss'
+import Pages from 'vite-plugin-pages'
+import Components from 'unplugin-vue-components/vite'
+import { viteMockServe as Mock } from 'vite-plugin-mock'
+import Inspect from 'vite-plugin-inspect'
+import { compression } from 'vite-plugin-compression2'
 
 // https://cn.vitejs.dev/config/
 export default defineConfig(() => ({
   resolve: {
     alias: {
-      "@": require("path").resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   plugins: [
@@ -34,7 +35,7 @@ export default defineConfig(() => ({
     // https://github.com/vbenjs/vite-plugin-mock/blob/main/README.zh_CN.md
     Mock({
       ignore: /^_/,
-      injectCode: `import '../mock/_createProductionServer';`,
+      injectCode: 'import \'../mock/_createProductionServer\';',
     }),
 
     // https://github.com/antfu/vite-plugin-inspect#readme
@@ -46,4 +47,4 @@ export default defineConfig(() => ({
     // https://github.com/nonzzz/vite-compression-plugin#readme
     compression({ threshold: 1024 * 50 }),
   ],
-}));
+}))
