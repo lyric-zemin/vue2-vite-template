@@ -1,7 +1,6 @@
 import { readFileSync } from 'node:fs'
-import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import chalk from 'chalk'
+import path from 'node:path'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url), '..')
 const msgPath = path.resolve(dirname, '../.git/COMMIT_EDITMSG')
@@ -13,19 +12,11 @@ const commitRE
 if (!commitRE.test(msg)) {
   console.log()
   console.error(
-    `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(
-      'invalid commit message format.',
-    )}\n\n${
-      chalk.red(
-        '  Proper commit message format is required for automated changelog generation. Examples:\n\n',
-      )
-      }    ${chalk.green('feat(compiler): add \'comments\' option')}\n`
-      + `    ${chalk.green(
-        'fix(v-model): handle events on blur (close #28)',
-      )}\n\n${
-      chalk.red(
-        '  See https://github.com/vuejs/vue/blob/main/.github/COMMIT_CONVENTION.md for more details.\n',
-      )}`,
+    ` invalid commit message format.\n\n
+    Proper commit message format is required for automated changelog generation.\n
+    Examples:\n
+    feat(compiler): add \'comments\' option\n
+    fix(v-model): handle events on blur (close #28)`,
   )
   process.exit(1)
 }
