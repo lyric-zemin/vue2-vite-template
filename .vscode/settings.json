@@ -7,6 +7,10 @@
     "antfu",
     "mockjs",
     "unplugin",
+    "windi",
     "windicss"
-  ]
+  ],
+  "vetur.grammar.customBlocks": {
+    "route": "yaml"
+  }
 }

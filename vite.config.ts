@@ -27,7 +27,7 @@ export default defineConfig(() => ({
     Legacy(),
 
     // https://github.com/hannoeru/vite-plugin-pages
-    Pages(),
+    Pages({ routeBlockLang: 'yaml' }),
 
     // https://github.com/antfu/unplugin-vue-components
     Components(),

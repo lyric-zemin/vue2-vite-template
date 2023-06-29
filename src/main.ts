@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import routes from 'virtual:generated-pages'
 import App from './App.vue'
-import routes from '~pages'
 import 'virtual:windi.css'
 
 Vue.use(VueRouter)
